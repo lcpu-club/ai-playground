@@ -5,6 +5,8 @@ import fastifyJwt from '@fastify/jwt'
 import { logger } from '../util/logger.js'
 import { system } from './system.js'
 import { login } from './login.js'
+import { chat } from './chat.js'
+import { user } from './user.js'
 
 const JWT_SECRET = process.env.JWT_SECRET ?? 'superSECRET'
 
@@ -43,4 +45,6 @@ export const api: FastifyPluginAsyncTypebox = async (server) => {
   })
   await server.register(system, { prefix: '/system' })
   await server.register(login, { prefix: '/login' })
+  await server.register(user, { prefix: '/user' })
+  await server.register(chat, { prefix: '/chat' })
 }

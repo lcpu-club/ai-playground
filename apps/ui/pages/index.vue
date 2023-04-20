@@ -1,11 +1,17 @@
 <template>
-  <div class="h-full flex flex-col justify-center items-center">
-    <div class="text-h2">Welcome</div>
-    <div>
-      <div>Create your AI session now</div>
-      <div class="grid">
-        <VBtn variant="outlined">Chat</VBtn>
-      </div>
-    </div>
-  </div>
+  <VContainer class="fill-height">
+    <VRow justify="center">
+      <VCol>
+        <VCard variant="flat">
+          <VCardTitle>Welcome</VCardTitle>
+          <VCardText>
+            <div>Create your AI session now</div>
+            <div class="grid">
+              <VBtn variant="outlined" to="/new?type=chat">Chat</VBtn>
+            </div>
+          </VCardText>
+        </VCard>
+      </VCol>
+    </VRow>
+  </VContainer>
 </template>
