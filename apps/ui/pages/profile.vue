@@ -8,6 +8,9 @@
             <VTextField v-model="name" label="Name" />
             <VTextField v-model="email" label="Email" type="email" />
           </VCardText>
+          <VCardText>
+            {{ profile.data.value?.balance }}
+          </VCardText>
           <VCardActions>
             <VSpacer />
             <VBtn color="secondary" :disabled="loading" @click="load">Reset</VBtn>

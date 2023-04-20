@@ -17,8 +17,9 @@ definePageMeta({
 })
 
 const router = useRouter()
+const profile = useUserProfile()
 
-if (isLoggedIn) {
+if (isLoggedIn.value) {
   router.replace('/')
 }
 
@@ -33,6 +34,7 @@ const intervalId = setInterval(async () => {
     const { data } = await axios.post<{ result: string }>('/api/login/poll', resp.data.value)
     if (data.result) {
       authToken.value = data.result
+      profile.execute()
       router.replace('/')
     }
   } catch (err) {

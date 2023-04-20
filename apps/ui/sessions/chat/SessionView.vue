@@ -54,9 +54,11 @@ async function submit() {
       frequencyPenalty: 0.5,
       modelName: props.session.model
     })
+    const { text, ...rest } = data
     history.push({
       role: 'bot',
-      message: data.text
+      message: text,
+      ...rest
     })
     await db.sessions.update(id, { history })
   } catch (err) {

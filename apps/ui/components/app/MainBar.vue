@@ -6,7 +6,11 @@
     </template>
     <template #append>
       <VToolbarItems>
-        <VBtn icon="mdi-cog" variant="text" @click="settingsDrawer = !settingsDrawer" />
+        <VBtn variant="text" @click="settingsDrawer = !settingsDrawer">
+          <VAvatar color="grey-lighten-1">
+            <img :src="avatarUrl" />
+          </VAvatar>
+        </VBtn>
       </VToolbarItems>
     </template>
   </VAppBar>
@@ -14,4 +18,5 @@
 
 <script setup lang="ts">
 const { navDrawer, settingsDrawer } = useAppState()
+const avatarUrl = useAvatarUrl()
 </script>

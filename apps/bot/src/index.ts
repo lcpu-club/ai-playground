@@ -14,7 +14,19 @@ const enabledChatrooms: Record<string, IChatroomConfig> = {
   '34567271162@chatroom': {
     tags: ['Test'],
     balance: {
-      token: 10000
+      chatd: 10000
+    }
+  },
+  '23333702307@chatroom': {
+    tags: ['LCPU Member'],
+    balance: {
+      chatd: 10
+    }
+  },
+  '49398943428@chatroom': {
+    tags: ['LCPU AP'],
+    balance: {
+      chatd: 100
     }
   }
 }
@@ -93,6 +105,7 @@ socket.on('notify', async (ev) => {
   try {
     if (ev.typeName === 'kMessageUpdateEvent') {
       const msg = ev.decoded.newMsg as IMessageContext
+      console.log(msg)
       if (!(msg.conversationName in enabledChatrooms)) return
       if (msg.toUsername === msg.chatroomMemberUsername) {
         console.log('fuck')

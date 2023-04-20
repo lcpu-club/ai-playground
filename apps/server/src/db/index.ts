@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb'
+import { MongoClient, ObjectId } from 'mongodb'
 
 const MONGO_URL = process.env.MONGO_URL ?? 'mongodb://localhost:27017/aiplayground'
 
@@ -24,3 +24,11 @@ export interface ILoginAttempt {
 
 export const loginAttempts = db.collection<ILoginAttempt>('loginAttempts')
 loginAttempts.createIndex({ timestamp: 1 }, { expireAfterSeconds: 5 * 60 }) // 5 minutes
+
+export interface ILock {
+  userId: string
+  type: string
+}
+
+export const locks = db.collection<ILock>('locks')
+locks.createIndex({ userId: 1, type: 1 }, { unique: true })

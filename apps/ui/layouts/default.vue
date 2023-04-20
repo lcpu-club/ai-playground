@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 const router = useRouter()
-if (!isLoggedIn) {
+if (!isLoggedIn.value) {
   router.replace('/login')
 }
 </script>
