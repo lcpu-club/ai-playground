@@ -1,0 +1,7 @@
+.husky
+.nuxt
+.output
+.yarn
+node_modules
+public
+dist

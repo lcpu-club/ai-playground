@@ -1,0 +1,17 @@
+{
+  "name": "ai-playground-workspace",
+  "packageManager": "yarn@3.5.0",
+  "license": "AGPL-3.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.7"
+  }
+}
