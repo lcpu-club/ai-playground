@@ -7,10 +7,11 @@ export const login: FastifyPluginAsyncTypebox = async (server) => {
     '/attempt',
     {
       config: {
-        rateLimit: {
-          max: 5,
-          timeWindow: '1 minute'
-        }
+        // rateLimit: {
+        //   max: 5,
+        //   timeWindow: '1 minute'
+        // },
+        bypassAuth: true
       }
     },
     async () => {
@@ -22,6 +23,7 @@ export const login: FastifyPluginAsyncTypebox = async (server) => {
         result: '',
         timestamp: Date.now()
       })
+      return { _id, secret }
     }
   )
 
@@ -33,6 +35,9 @@ export const login: FastifyPluginAsyncTypebox = async (server) => {
           _id: Type.String(),
           secret: Type.String()
         })
+      },
+      config: {
+        bypassAuth: true
       }
     },
     async (req) => {

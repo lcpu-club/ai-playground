@@ -10,6 +10,7 @@ export interface IUser {
   name: string
   email: string
   balance: Record<string, number>
+  tags: string[]
 }
 
 export const users = db.collection<IUser>('users')

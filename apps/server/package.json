@@ -3,6 +3,7 @@
   "packageManager": "yarn@3.5.0",
   "license": "AGPL-3.0",
   "type": "module",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc"
   },

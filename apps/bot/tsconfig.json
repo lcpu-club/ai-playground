@@ -4,7 +4,9 @@
     "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "nodenext",
-    "types": [],
+    "types": [
+      "node"
+    ],
     "declaration": true,
     "sourceMap": true,
     "outDir": "lib",
