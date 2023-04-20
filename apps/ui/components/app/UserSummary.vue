@@ -1,8 +1,8 @@
 <template>
-  <VListItem>
+  <VListItem to="/profile">
     <template #prepend>
       <VAvatar color="grey-lighten-1">
-        <VIcon color="white">mdi-account</VIcon>
+        <img :src="avatarUrl" />
       </VAvatar>
     </template>
     <VListItemTitle>{{ profile.data.value?.name }}</VListItemTitle>
@@ -14,18 +14,14 @@
 </template>
 
 <script setup lang="ts">
+import md5 from 'crypto-js/md5'
+
 function logout() {
   authToken.value = ''
 }
 
-const profile = useAsyncData(async () => {
-  const { data } = await axios.get<{
-    _id: string
-    name: string
-    email: string
-    balance: Record<string, number>
-    tags: string[]
-  }>('/api/user/profile')
-  return data
+const profile = useUserProfile()
+const avatarUrl = computed(() => {
+  return `https://www.gravatar.com/avatar/${md5(profile.data.value?.email ?? '')}?d=mp`
 })
 </script>

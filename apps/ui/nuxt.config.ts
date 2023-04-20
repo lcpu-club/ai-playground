@@ -12,9 +12,9 @@ export default defineNuxtConfig({
     '@unocss/reset/tailwind.css',
     'github-markdown-css/github-markdown-light.css'
   ],
-  nitro: {
-    devProxy: {
-      '/api/': 'http://localhost:4000/api/'
+  routeRules: {
+    '/api/**': {
+      proxy: 'http://localhost:4000/api/**'
     }
   }
 })
